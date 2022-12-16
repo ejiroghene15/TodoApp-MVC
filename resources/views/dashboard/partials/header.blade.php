@@ -4,8 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://joblly-admin-template-dashboard.multipurposethemes.com/bs4/images/favicon.ico">
-
+    <link rel="shortcut icon" href="{{ asset('images/write.png') }}" type="image/x-icon">
     <title>Todo - Dashboard</title>
 
     <!-- Vendors Style-->

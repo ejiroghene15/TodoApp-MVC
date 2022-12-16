@@ -60,7 +60,7 @@ function getTodo() {
             chartDisplay(total, pending, completed);
         },
         error: function (xhr, status, error) {
-            toastr.error(error);
+            toastr.info("An error occured, Reload Page to see your todo's");
         },
     });
 }
@@ -205,4 +205,4 @@ function chartDisplay(total, pending, completed) {
 
 setTimeout(() => {
     getTodo();
-}, 1000);
+}, 2000);

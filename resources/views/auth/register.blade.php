@@ -8,12 +8,16 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Login</title>
+    <title>My Todo | Register</title>
+    <link rel="shortcut icon" href="{{ asset('images/write.png') }}" type="image/x-icon">
 </head>
 
 <body>
 
-    <main style="height: 100vh;" class="d-flex justify-content-center align-items-center">
+    <main style="height: 100vh;" class="d-flex justify-content-center align-items-center flex-wrap">
+        <header class="text-center flex-grow-1 w-100" style="margin-bottom: -100px">
+            <span class="light-logo"><img src="{{ asset('images/write.png') }}" height="50" alt="logo"></span>
+        </header>
         <div class="m-auto" style="width: 40vmax;">
             <section class="card shadow-sm">
                 <div class="card-body">
@@ -22,7 +26,8 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">First Name</label>
-                            <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}">
+                            <input type="text" class="form-control" name="first_name"
+                                value="{{ old('first_name') }}">
                             @error('first_name')
                                 <div class="invalid-feedback d-block">
                                     <strong>{{ $message }}</strong>

@@ -8,8 +8,7 @@
         <a href="index.html" class="logo">
             <!-- logo-->
             <div class="logo-lg">
-                <span class="light-logo"><img src="{{ asset('images/logo-dark-text.png') }}" alt="logo"></span>
-                <span class="dark-logo"><img src="{{ asset('images/logo-light-text.png') }}" alt="logo"></span>
+                <span class="light-logo"><img src="{{ asset('images/write.png') }}" height="40" alt="logo"></span>
             </div>
         </a>
     </div>

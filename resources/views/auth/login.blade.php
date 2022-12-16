@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,17 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Login</title>
+    <title>MyTodo | Login</title>
+    <link rel="shortcut icon" href="{{ asset('images/write.png') }}" type="image/x-icon">
 </head>
 
 <body>
     <main style="height: 100vh;" class="d-flex justify-content-center align-items-center">
         <div class="m-auto" style="width: 40vmax;">
+            <header class="text-center flex-grow-1 w-100 mb-4">
+                <span class="light-logo"><img src="{{ asset('images/write.png') }}" height="50"
+                        alt="logo"></span>
+            </header>
             <section class="card shadow-sm">
                 <div class="card-body">
                     <h4 class="card-title mb-4 text-muted">Login</h4>
@@ -31,12 +36,12 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Email Address</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="">Password</label>
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control" name="password" required>
                         </div>
 
                         <div class="form-group">
