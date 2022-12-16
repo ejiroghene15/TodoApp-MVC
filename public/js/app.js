@@ -66,14 +66,14 @@ function getTodo() {
 }
 
 function chartDisplay(total, pending, completed) {
-    var options = {
+    var all_todo_options = {
         chart: {
             height: 150,
             width: 150,
             type: "radialBar",
         },
 
-        series: [100],
+        series: [total ? 100 : 0],
         colors: ["#673ab7"],
         plotOptions: {
             radialBar: {
@@ -106,9 +106,9 @@ function chartDisplay(total, pending, completed) {
         labels: ["Progress"],
     };
 
-    var chart = new ApexCharts(document.querySelector("#revenue1"), options);
+    var all_todo_chart = new ApexCharts(document.querySelector("#revenue1"), all_todo_options);
 
-    chart.render();
+    all_todo_chart.render();
 
     var options = {
         chart: {

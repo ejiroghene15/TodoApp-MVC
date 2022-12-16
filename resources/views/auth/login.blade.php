@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <main style="height: 100vh;" class="d-flex justify-content-center align-items-center">
         <div class="m-auto" style="width: 40vmax;">
             <section class="card shadow-sm">
