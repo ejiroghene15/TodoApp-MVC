@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+// use App\Http\Controllers\TodoController;
+
 class AuthController extends Controller
 {
     public function __construct()
@@ -23,8 +25,11 @@ class AuthController extends Controller
     public function validateLogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
+
         if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
+            // * Authenticate the user accessing the todo api endpoint
+            session(['jwt-token' => TodoController::authenticateUser()->json('token')]);
             return redirect()->intended(route('home'));
         } else {
             return back()->withMessage('Incorrect login details');
