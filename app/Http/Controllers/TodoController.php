@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class TodoController extends Controller
 {
     // https://todoapp-api-service.herokuapp.com
-    const API_URL = "http://localhost:5000";
+    const API_URL = "https://todoapp-api-service.herokuapp.com";
     const API_AUTH_URL = self::API_URL . "/auth";
     const API_TODO_URL = self::API_URL . "/todo";
 
