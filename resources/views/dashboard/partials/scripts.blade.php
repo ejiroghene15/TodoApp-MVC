@@ -7,7 +7,3 @@
 <script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
 <!-- Joblly App -->
 <script src="{{ asset('js/template.js') }}"></script>
-<script>
-    let auth_user = "{{ auth()->user()->email }}";
-    let api_url = "{{ env('API_ENDPOINT') }}";
-</script>

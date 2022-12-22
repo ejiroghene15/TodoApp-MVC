@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 @include('dashboard.partials.header')
 
-<body>
-    @yield('body')
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+    <div class="wrapper">
+        <div id="loader"></div>
+
+        @include('dashboard.partials.sidebar')
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="container-full">
+                @yield('body')
+            </div>
+        </div>
+
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            &copy; {{ date('Y') }} <a href="#"> Jiro's Todo App</a>.
+        </footer>
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+
+    </div>
+    <!-- ./wrapper -->
 
     @section('logout')
-        <!-- Modal -->
+        <!-- Logout Modal -->
         <div class="modal center-modal fade" id="modal-center" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">

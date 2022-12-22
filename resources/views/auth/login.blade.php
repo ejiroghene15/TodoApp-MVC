@@ -19,6 +19,7 @@
                 <span class="light-logo"><img src="{{ asset('images/write.png') }}" height="50"
                         alt="logo"></span>
             </header>
+            
             <section class="card shadow-sm">
                 <div class="card-body">
                     <h4 class="card-title mb-4 text-muted">Login</h4>
