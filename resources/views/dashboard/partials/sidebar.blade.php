@@ -5,7 +5,7 @@
             <i data-feather="menu"></i>
         </a>
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="{{ route('home') }}" class="logo">
             <!-- logo-->
             <div class="logo-lg">
                 <span class="light-logo"><img src="{{ asset('images/write.png') }}" height="40" alt="logo"></span>
