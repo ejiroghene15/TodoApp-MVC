@@ -18,16 +18,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
 
-Route::get('login', [AuthController::class, 'login'])->name("login");
+Route::controller(AuthController::class)->group(function () {
+    Route::get('login', 'login')->name("login");
 
-Route::post('login', [AuthController::class, 'validateLogin'])->name("sign_in");
+    Route::post('login', 'validateLogin')->name("sign_in");
 
-Route::get('register', [AuthController::class, 'register'])->name("register");
+    Route::get('register', 'register')->name("register");
 
-Route::post('register', [AuthController::class, 'processRegistration'])->name("signup");
+    Route::post('register', 'processRegistration')->name("signup");
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('home');
+    Route::get('logout', 'logout')->name("logout");
+});
 
-Route::get('todo/{id}', [DashboardController::class, 'showTodo']);
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('dashboard', 'index')->name('home');
 
-Route::get('logout', [AuthController::class, 'logout'])->name("logout");
+    Route::get('todo/{todo}', 'showTodo')->name('showTodo');
+
+    Route::post('new-todo', 'addTodo')->name('addTodo');
+
+    Route::put('update-todo/{todo}', 'updateTodo')->name('updateTodo');
+
+    Route::delete('delete-todo/{todo}', 'deleteTodo')->name('deleteTodo');
+});
