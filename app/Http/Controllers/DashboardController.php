@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveTodoRequest;
-use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends Controller
 {
