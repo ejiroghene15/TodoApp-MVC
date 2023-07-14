@@ -17,27 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::redirect('/', '/login');
+Route::view('login', 'auth.login')->name("login");
+Route::view('register', 'auth.register')->name("register");
+
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('login', 'login')->name("login");
-
-    Route::post('login', 'validateLogin')->name("sign_in");
-
-    Route::get('register', 'register')->name("register");
-
-    Route::post('register', 'processRegistration')->name("signup");
-
+    Route::post('login', 'login')->name("auth.login");
+    Route::post('register', 'register')->name("auth.register");
     Route::get('logout', 'logout')->name("logout");
 });
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('dashboard', 'index')->name('home');
-
     Route::get('todo/{todo}', 'showTodo')->name('showTodo');
-
     Route::post('new-todo', 'addTodo')->name('addTodo');
-
     Route::put('update-todo/{todo}', 'updateTodo')->name('updateTodo');
-
     Route::delete('delete-todo/{todo}', 'deleteTodo')->name('deleteTodo');
 });
