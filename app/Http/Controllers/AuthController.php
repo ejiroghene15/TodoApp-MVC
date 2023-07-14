@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Signup;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,12 +42,12 @@ class AuthController extends Controller
         return view("auth.register");
     }
 
-    public function processRegistration(Request $request)
+    public function processRegistration(Signup $request)
     {
         // * Run validation the on request data
-        $this->signupValidator();
+        $validated = $request->validate();
         $request['password'] = Hash::make($request->password);
-        User::create($request->all());
+        User::create($validated);
         return redirect()->route("login")->withRegistered(true);
     }
 
@@ -56,23 +57,4 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    public function signupValidator()
-    {
-        Validator::make(request()->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:6',
-
-        ], [
-            "required" => ':attribute is required',
-            "unique" => 'An account with this :attribute already exists',
-            "confirmed" => ':attribute must match with Confirm Password'
-        ], [
-            "first_name" => "First Name",
-            "last_name" => "Last Name",
-            "email" => "Email Address",
-            "password" => "Password"
-        ])->validate();
-    }
 }
