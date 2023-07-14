@@ -7,9 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
-// use App\Http\Controllers\TodoController;
 
 class AuthController extends Controller
 {
@@ -18,12 +15,7 @@ class AuthController extends Controller
         $this->middleware('guest')->except("logout");
     }
 
-    public function login()
-    {
-        return view("auth.login");
-    }
-
-    public function validateLogin(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
@@ -37,12 +29,7 @@ class AuthController extends Controller
         }
     }
 
-    public function register()
-    {
-        return view("auth.register");
-    }
-
-    public function processRegistration(Signup $request)
+    public function register(Signup $request)
     {
         // * Run validation the on request data
         $validated = $request->validate();
